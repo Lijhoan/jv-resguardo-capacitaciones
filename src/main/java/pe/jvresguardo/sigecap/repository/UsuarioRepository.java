@@ -73,6 +73,21 @@ public class UsuarioRepository {
         return null;
     }
 
+    public Usuario buscarPorEmail(String email) throws SQLException {
+        String sql = "SELECT id, username, nombre_completo, email, password, rol_id, estado "
+                + "FROM usuarios WHERE email = ?";
+        try (Connection conexion = DatabaseConnection.getConnection();
+                PreparedStatement stmt = conexion.prepareStatement(sql)) {
+            stmt.setString(1, email);
+            try (ResultSet rs = stmt.executeQuery()) {
+                if (rs.next()) {
+                    return mapearUsuario(rs);
+                }
+            }
+        }
+        return null;
+    }
+
     public List<Usuario> listar() throws SQLException {
         String sql = "SELECT id, username, nombre_completo, email, password, rol_id, estado "
                 + "FROM usuarios ORDER BY username";
