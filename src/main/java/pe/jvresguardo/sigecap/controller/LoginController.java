@@ -1,12 +1,15 @@
 package pe.jvresguardo.sigecap.controller;
 
-import java.awt.Component;
 import java.sql.SQLException;
 import java.util.Arrays;
 
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.SwingUtilities;
 
+import pe.jvresguardo.sigecap.model.Usuario;
 import pe.jvresguardo.sigecap.service.AutenticacionService;
+import pe.jvresguardo.sigecap.view.MainView;
 
 /**
  * HU-JVR-013
@@ -24,15 +27,14 @@ public class LoginController {
         this.autenticacionService = autenticacionService;
     }
 
-    public void iniciarSesion(String username, char[] password, Component vista) {
+    public void iniciarSesion(String username, char[] password, JFrame vista) {
         try {
             AutenticacionService.Resultado resultado = autenticacionService.autenticar(username, new String(password));
 
             if (resultado.exitoso()) {
-                JOptionPane.showMessageDialog(vista,
-                        "Bienvenido, " + resultado.usuario().getNombreCompleto() + "\n"
-                                + "Rol: " + resultado.usuario().getRol().getNombre(),
-                        "Login exitoso", JOptionPane.INFORMATION_MESSAGE);
+                Usuario usuario = resultado.usuario();
+                vista.dispose();
+                SwingUtilities.invokeLater(() -> new MainView(usuario).setVisible(true));
             } else {
                 JOptionPane.showMessageDialog(vista, resultado.mensaje(), "Login fallido", JOptionPane.ERROR_MESSAGE);
             }
