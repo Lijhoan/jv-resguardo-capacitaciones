@@ -17,7 +17,9 @@ import javax.swing.SwingUtilities;
 import pe.jvresguardo.sigecap.model.Usuario;
 
 /**
- * HU-JVR-014
+ * HU-JVR-009
+ * HU-JVR-010
+ * HU-JVR-011
  * Ventana principal de SIGECAP J&V, mostrada tras un login exitoso.
  */
 public class MainView extends JFrame {

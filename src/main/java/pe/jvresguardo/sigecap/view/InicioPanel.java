@@ -11,7 +11,9 @@ import javax.swing.JPanel;
 import pe.jvresguardo.sigecap.model.Usuario;
 
 /**
- * HU-JVR-014
+ * HU-JVR-009
+ * HU-JVR-010
+ * HU-JVR-011
  * Panel de inicio mostrado dentro de MainView tras un login exitoso.
  */
 public class InicioPanel extends JPanel {
