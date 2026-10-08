@@ -24,3 +24,14 @@ CREATE TABLE IF NOT EXISTS usuarios (
 INSERT INTO roles (nombre, descripcion, estado) VALUES
     ('ADMIN', 'Administrador del sistema', TRUE),
     ('SUPERVISOR', 'Supervisor de operaciones', TRUE);
+
+-- HU-JVR-001
+-- Tabla de personal (trabajadores). La base sigecap_jv ya existe; no recrearla.
+CREATE TABLE IF NOT EXISTS trabajadores (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    dni VARCHAR(15) NOT NULL UNIQUE,
+    nombres VARCHAR(100) NOT NULL,
+    apellidos VARCHAR(100) NOT NULL,
+    cargo VARCHAR(100) NOT NULL,
+    estado BOOLEAN NOT NULL DEFAULT TRUE
+);

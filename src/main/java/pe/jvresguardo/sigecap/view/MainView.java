@@ -198,7 +198,7 @@ public class MainView extends JFrame {
     private JPanel construirAreaCentral(Usuario usuario) {
         panelCentral.setBackground(EstiloUI.COLOR_FONDO);
         panelCentral.add(new InicioPanel(usuario), "inicio");
-        panelCentral.add(crearPanelEnDesarrollo("Personal"), "personal");
+        panelCentral.add(new PersonalPanel(), "personal");
         panelCentral.add(crearPanelEnDesarrollo("Capacitaciones"), "capacitaciones");
         panelCentral.add(crearPanelEnDesarrollo("Seguimiento"), "seguimiento");
         panelCentral.add(crearPanelEnDesarrollo("Reportes"), "reportes");
