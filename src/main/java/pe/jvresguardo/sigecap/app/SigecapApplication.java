@@ -1,11 +1,15 @@
 package pe.jvresguardo.sigecap.app;
 
+import javax.swing.SwingUtilities;
+
+import pe.jvresguardo.sigecap.view.LoginView;
+
 public final class SigecapApplication {
 
     private SigecapApplication() {
     }
 
     public static void main(String[] args) {
-        System.out.println("SIGECAP J&V iniciado correctamente.");
+        SwingUtilities.invokeLater(() -> new LoginView().setVisible(true));
     }
 }
