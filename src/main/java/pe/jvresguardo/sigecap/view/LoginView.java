@@ -1,7 +1,6 @@
 package pe.jvresguardo.sigecap.view;
 
 import java.awt.FlowLayout;
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -43,16 +42,19 @@ public class LoginView extends JFrame {
     private void construirContenido() {
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBorder(BorderFactory.createEmptyBorder(20, 30, 20, 30));
+        panel.setBackground(EstiloUI.COLOR_FONDO);
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.insets = new Insets(6, 6, 6, 6);
         gbc.fill = GridBagConstraints.HORIZONTAL;
 
         JLabel titulo = new JLabel("SIGECAP J&V", SwingConstants.CENTER);
-        titulo.setFont(titulo.getFont().deriveFont(Font.BOLD, 20f));
+        titulo.setFont(EstiloUI.FUENTE_TITULO.deriveFont(20f));
+        titulo.setForeground(EstiloUI.COLOR_TEXTO_PRINCIPAL);
 
         JLabel subtitulo = new JLabel("Gestión de Capacitaciones", SwingConstants.CENTER);
-        subtitulo.setFont(subtitulo.getFont().deriveFont(Font.PLAIN, 13f));
+        subtitulo.setFont(EstiloUI.FUENTE_SUBTITULO);
+        subtitulo.setForeground(EstiloUI.COLOR_TEXTO_SECUNDARIO);
 
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -76,9 +78,20 @@ public class LoginView extends JFrame {
         panel.add(campoPassword, gbc);
 
         JButton botonIngresar = new JButton("Ingresar");
+        botonIngresar.setFont(EstiloUI.FUENTE_BOTON);
+        botonIngresar.setForeground(EstiloUI.COLOR_TEXTO_CLARO);
+        botonIngresar.setBackground(EstiloUI.COLOR_ACENTO);
+        botonIngresar.setOpaque(true);
+        botonIngresar.setBorderPainted(false);
+        botonIngresar.setFocusPainted(false);
+
         JButton botonSalir = new JButton("Salir");
+        botonSalir.setFont(EstiloUI.FUENTE_BOTON);
+        botonSalir.setForeground(EstiloUI.COLOR_TEXTO_SECUNDARIO);
+        botonSalir.setFocusPainted(false);
 
         JPanel panelBotones = new JPanel(new FlowLayout(FlowLayout.CENTER, 15, 0));
+        panelBotones.setBackground(EstiloUI.COLOR_FONDO);
         panelBotones.add(botonIngresar);
         panelBotones.add(botonSalir);
 

@@ -1,6 +1,5 @@
 package pe.jvresguardo.sigecap.view;
 
-import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -20,6 +19,7 @@ public class InicioPanel extends JPanel {
 
     public InicioPanel(Usuario usuario) {
         super(new GridBagLayout());
+        setBackground(EstiloUI.COLOR_FONDO);
         construirContenido(usuario);
     }
 
@@ -29,13 +29,16 @@ public class InicioPanel extends JPanel {
         gbc.gridx = 0;
 
         JLabel titulo = new JLabel("Panel principal");
-        titulo.setFont(titulo.getFont().deriveFont(Font.BOLD, 22f));
+        titulo.setFont(EstiloUI.FUENTE_TITULO);
+        titulo.setForeground(EstiloUI.COLOR_TEXTO_PRINCIPAL);
 
         JLabel bienvenida = new JLabel("Bienvenido, " + usuario.getNombreCompleto());
-        bienvenida.setFont(bienvenida.getFont().deriveFont(16f));
+        bienvenida.setFont(EstiloUI.FUENTE_TEXTO);
+        bienvenida.setForeground(EstiloUI.COLOR_TEXTO_PRINCIPAL);
 
         JLabel rol = new JLabel("Rol: " + usuario.getRol().getNombre());
-        rol.setFont(rol.getFont().deriveFont(14f));
+        rol.setFont(EstiloUI.FUENTE_TEXTO_SECUNDARIO);
+        rol.setForeground(EstiloUI.COLOR_TEXTO_SECUNDARIO);
 
         gbc.gridy = 0;
         add(titulo, gbc);
